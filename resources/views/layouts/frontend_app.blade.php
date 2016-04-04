@@ -33,6 +33,8 @@
         {{-- Navigation --}}
         @include('frontend.nav')
         @yield('content')
+        {{-- Footer --}}
+        @include('frontend.footer')
     </div><!--/#main-wrapper-->
 
     <!--/#scripts-->
