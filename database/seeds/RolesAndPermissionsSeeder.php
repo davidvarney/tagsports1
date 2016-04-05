@@ -61,6 +61,10 @@ class RolesAndPermissionsSeeder extends Seeder {
                 'can_edit_blog',
                 'can_add_blog',
                 'can_delete_blog',
+                'can_view_post',
+                'can_edit_post',
+                'can_add_post',
+                'can_delete_post',
                 'can_view_comment',
                 'can_add_comment',
                 'can_edit_comment',
@@ -104,6 +108,10 @@ class RolesAndPermissionsSeeder extends Seeder {
                 'can_edit_blog',
                 'can_add_blog',
                 'can_delete_blog',
+                'can_view_post',
+                'can_edit_post',
+                'can_add_post',
+                'can_delete_post',
                 'can_view_comment',
                 'can_add_comment',
                 'can_edit_comment',
@@ -132,6 +140,10 @@ class RolesAndPermissionsSeeder extends Seeder {
                 'can_edit_blog',
                 'can_add_blog',
                 'can_delete_blog',
+                'can_view_post',
+                'can_edit_post',
+                'can_add_post',
+                'can_delete_post',
                 'can_view_comment',
                 'can_add_comment',
                 'can_edit_comment',
@@ -152,6 +164,7 @@ class RolesAndPermissionsSeeder extends Seeder {
                 'can_view_athletes',
                 'can_view_station_data',
                 'can_view_blog',
+                'can_view_post',
                 'can_view_comment',
                 'can_add_comment',
                 'can_edit_comment',
@@ -200,7 +213,11 @@ class RolesAndPermissionsSeeder extends Seeder {
         'can_view_comment' => [],
         'can_add_comment' => [],
         'can_edit_comment' => [],
-        'can_delete_comment' => []
+        'can_delete_comment' => [],
+        'can_view_post' => [],
+        'can_edit_post' => [],
+        'can_add_post' => [],
+        'can_delete_post' => []
     ];
 
 
