@@ -9,13 +9,13 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="index.html">
-                    <img class="main-logo img-responsive" src="images/logo.png" alt="">
+                <a class="navbar-brand" href="{!! url('/') !!}">
+                    <img class="main-logo img-responsive" src="/images/logo.png" alt="">
                 </a>
             </div>
             <nav id="mainmenu" class="navbar-left collapse navbar-collapse">
                 <a class="secondary-logo" href="index.html">
-                    <img class="img-responsive" src="images/logo.png" alt="">
+                    <img class="img-responsive" src="/images/logo.png" alt="">
                 </a>
                 <ul class="nav navbar-nav">
                     <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
@@ -45,7 +45,7 @@
                                         <div class="post medium-post">
                                             <div class="entry-header">
                                                 <div class="entry-thumbnail">
-                                                    <a href="news-details.html"><img class="img-responsive" src="images/post/2.jpg" alt="" /></a>
+                                                    <a href="news-details.html"><img class="img-responsive" src="/images/post/2.jpg" alt="" /></a>
                                                 </div>
                                             </div>
                                             <div class="post-content">
@@ -66,7 +66,7 @@
                                         <div class="post medium-post">
                                             <div class="entry-header">
                                                 <div class="entry-thumbnail">
-                                                    <a href="news-details.html"><img class="img-responsive" src="images/post/3.jpg" alt="" /></a>
+                                                    <a href="news-details.html"><img class="img-responsive" src="/images/post/3.jpg" alt="" /></a>
                                                 </div>
                                             </div>
                                             <div class="post-content">
@@ -87,7 +87,7 @@
                                         <div class="post medium-post">
                                             <div class="entry-header">
                                                 <div class="entry-thumbnail">
-                                                    <a href="news-details.html"><img class="img-responsive" src="images/post/4.jpg" alt="" /></a>
+                                                    <a href="news-details.html"><img class="img-responsive" src="/images/post/4.jpg" alt="" /></a>
                                                 </div>
                                             </div>
                                             <div class="post-content">
@@ -108,7 +108,7 @@
                                         <div class="post medium-post">
                                             <div class="entry-header">
                                                 <div class="entry-thumbnail">
-                                                    <a href="news-details.html"><img class="img-responsive" src="images/post/5.jpg" alt="" /></a>
+                                                    <a href="news-details.html"><img class="img-responsive" src="/images/post/5.jpg" alt="" /></a>
                                                 </div>
                                             </div>
                                             <div class="post-content">
@@ -148,11 +148,11 @@
                                     <form id="top-login" role="form">
                                     {!! Form::open(array("action" => 'Auth\AuthController@login', "method" => "POST", "role" => "form", "id" => "top-login")) !!}
                                         <div class="input-group" id="top-login-username">
-                                            <span class="input-group-addon"><img src="images/others/user-icon.png" alt="" /></span>
+                                            <span class="input-group-addon"><img src="/images/others/user-icon.png" alt="" /></span>
                                             <input type="text" class="form-control" placeholder="Username" required="">
                                         </div>
                                         <div class="input-group" id="top-login-password">
-                                            <span class="input-group-addon"><img src="images/others/password-icon.png" alt="" /></span>
+                                            <span class="input-group-addon"><img src="/images/others/password-icon.png" alt="" /></span>
                                             <input type="password" class="form-control" placeholder="Password" required="">
                                         </div>
                                         <div class="input-group" id="top-login-remember">
@@ -171,14 +171,14 @@
                             @else
                                 @if (Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('manager') || Auth::user()->hasRole('staff')))
                                     <div class="admin-index">
-                                        <a href="{{!! route(admin_index) !!}}">Admin</a>
+                                        <a href="{!! route(admin_index) !!}">Admin</a>
                                     </div>
                                 @endif
                                 <div class="user-account">
-                                    <a href="{{!! route('user_account_index', array(Auth::user()->id)) !!}}">Account</a>
+                                    <a href="{!! route('user_account', array(Auth::user()->id)) !!}">Account</a>
                                 </div>
                                 <div class="user-sign-out">
-                                    <a href="{{!! route('user_account_index', array(Auth::user()->id)) !!}}">Account</a>
+                                    <a href="{!! route('user_logout') !!}">Logout</a>
                                 </div>
                             @endif
                         </div>

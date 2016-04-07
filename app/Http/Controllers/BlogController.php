@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class Blog extends Controller
+class BlogController extends Controller
 {
     //
 }
