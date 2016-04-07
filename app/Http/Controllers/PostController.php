@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\Post;
 
-class Post extends Controller
+class PostController extends Controller
 {
     public function index()
     {
@@ -56,12 +56,12 @@ class Post extends Controller
 
         $post->update($data);
 
-        //\Flash::success('Post has been updated!');
+        \Flash::success('Post has been updated!');
 
         return redirect()->back();
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, array(
             'blog_id'       => 'required',
@@ -75,7 +75,7 @@ class Post extends Controller
 
         $post = Post::create($data);
 
-        //\Flash::success('Post has been created!');
+        \Flash::success('Post has been created!');
 
         return redirect()->back();
     }
@@ -86,7 +86,7 @@ class Post extends Controller
 
         $post->delete();
 
-        //\Flash::success('Post has been deleted!');
+        \Flash::success('Post has been deleted!');
 
         return redirect()->back();
     }

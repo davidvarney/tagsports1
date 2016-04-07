@@ -160,6 +160,8 @@ return [
          * CUSTOM TAG SPORTS 1 ADDITIONS
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -210,6 +212,9 @@ return [
          * CUSTOM TAG SPORTS 1 ADDITIONS
          */
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'Html'      => Illuminate\Html\HtmlFacade::class,
     ],
 
 ];

@@ -143,25 +143,44 @@
                     <li class="search-icon"><i class="fa fa-search"></i></li>
                     <li class="dropdown user-panel"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                         <div class="dropdown-menu top-user-section">
-                            <div class="top-user-form">
-                                <form id="top-login" role="form">
-                                    <div class="input-group" id="top-login-username">
-                                        <span class="input-group-addon"><img src="images/others/user-icon.png" alt="" /></span>
-                                        <input type="text" class="form-control" placeholder="Username" required="">
+                            @if (!Auth::check())
+                                <div class="top-user-form">
+                                    <form id="top-login" role="form">
+                                    {!! Form::open(array("action" => 'Auth\AuthController@login', "method" => "POST", "role" => "form", "id" => "top-login")) !!}
+                                        <div class="input-group" id="top-login-username">
+                                            <span class="input-group-addon"><img src="images/others/user-icon.png" alt="" /></span>
+                                            <input type="text" class="form-control" placeholder="Username" required="">
+                                        </div>
+                                        <div class="input-group" id="top-login-password">
+                                            <span class="input-group-addon"><img src="images/others/password-icon.png" alt="" /></span>
+                                            <input type="password" class="form-control" placeholder="Password" required="">
+                                        </div>
+                                        <div class="input-group" id="top-login-remember">
+                                            <input type="checkbox" name="remember"> Remember Me
+                                        </div>
+                                        <div>
+                                            <p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
+                                            <button class="btn btn-danger" type="submit">Login</button>
+                                        </div>
+                                    {{--</form>--}}
+                                    {!! Form::close() !!}
+                                </div>
+                                <div class="create-account">
+                                    <a href="{!! url('/register') !!}">Create a New Account</a>
+                                </div>
+                            @else
+                                @if (Auth::check() && (Auth::user()->hasRole('admin') || Auth::user()->hasRole('manager') || Auth::user()->hasRole('staff')))
+                                    <div class="admin-index">
+                                        <a href="{{!! route(admin_index) !!}}">Admin</a>
                                     </div>
-                                    <div class="input-group" id="top-login-password">
-                                        <span class="input-group-addon"><img src="images/others/password-icon.png" alt="" /></span>
-                                        <input type="password" class="form-control" placeholder="Password" required="">
-                                    </div>
-                                    <div>
-                                        <p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
-                                        <button class="btn btn-danger" type="submit">Login</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="create-account">
-                                <a href="#">Create a New Account</a>
-                            </div>
+                                @endif
+                                <div class="user-account">
+                                    <a href="{{!! route('user_account_index', array(Auth::user()->id)) !!}}">Account</a>
+                                </div>
+                                <div class="user-sign-out">
+                                    <a href="{{!! route('user_account_index', array(Auth::user()->id)) !!}}">Account</a>
+                                </div>
+                            @endif
                         </div>
                     </li>
                 </ul>
