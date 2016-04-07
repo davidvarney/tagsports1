@@ -20,4 +20,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/admin', 'HomeController@index');
 
+    /**
+     * BEGIN Post Routes
+     * @author David Varney
+     */
+    Route::get('/post', array('as' => 'post_index', 'uses' => 'PostController@index', 'middleware' => array('auth', 'permission:can_view_post')));
+    Route::get('/post', array('as' => 'post_index', 'uses' => 'PostController@index', 'middleware' => array('auth', 'permission:can_edit_post')));
 });
